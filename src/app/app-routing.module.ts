@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
-    canActivate: [ AuthGuard ]
+    canActivate: [AuthGuard]
   },
   {
     path: 'clientes',
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'chamados',
     loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule)
+  },
+  {
+    path: 'cargos',
+    loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
   }
 ];
 
