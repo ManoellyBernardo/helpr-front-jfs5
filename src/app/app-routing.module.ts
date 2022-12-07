@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'clientes',
-    loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule)
+    loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule),
+    
   },
   {
     path: 'chamados',
@@ -23,7 +24,9 @@ const routes: Routes = [
   {
     path: 'cargos',
     loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
-  }
+  },
+  { path: 'funcionarios',
+   loadChildren: () => import('./views/funcionarios/funcionarios.module').then(m => m.FuncionariosModule) }
 ];
 
 @NgModule({
