@@ -7,15 +7,18 @@ import { ClientesComponent } from './clientes/clientes.component';
 const routes: Routes = [
   {
     path: '',
-    component: ClientesComponent
+    component: ClientesComponent,
+    title: "Helper| Clientes"
   },
   {
     path: 'new',
-    component: NewClienteComponent
+    component: NewClienteComponent,
+    title: "Helper| New Clientes"
   },
   {
     path: 'edit/:id',
-    component: EditClienteComponent
+    component: EditClienteComponent,
+    title: "Helper| Edit Clientes"
   }
 ];
 
