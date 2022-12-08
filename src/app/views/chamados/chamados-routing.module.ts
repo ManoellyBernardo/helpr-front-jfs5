@@ -7,15 +7,18 @@ import { EditChamadoComponent } from 'src/app/views/chamados/edit-chamado/edit-c
 const routes: Routes = [
   {
     path: '',
-    component: ChamadosComponent
+    component: ChamadosComponent,
+    title: "Helper|Chamados"
   },
   {
     path: 'new',
-    component: NewChamadoComponent
+    component: NewChamadoComponent,
+    title: "Helper|New Chamado"
   },
   {
     path: 'edit/:id',
-    component: EditChamadoComponent
+    component: EditChamadoComponent,
+    title: "Helper|Edit Chamado"
   }
 ];
 
