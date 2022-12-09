@@ -23,4 +23,14 @@ export class CargosComponent implements OnInit {
       this.dataSource = cargos;
     });
   }
+
+  public delete(idCargo: number): void {
+    let ok = confirm("Tem certeza que deseja excluir?");
+    if(ok) {
+      this.cargoService.delete(idCargo).subscribe(() => {
+        alert("cargo excluido.");
+        this.initializeTable();
+      });
+    }
+  }
 }
