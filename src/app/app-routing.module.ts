@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { PaginafaqComponent } from './views/paginafaq/paginafaq.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'cargos',
     loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
+  },
+
+  {
+    path: 'faq',
+    component: PaginafaqComponent
   }
 ];
 
