@@ -1,17 +1,3 @@
-.cabecalho {
-    width: 100%;
-    box-sizing: border-box;
-    font-weight: 200;
-}
-
-.body {
-    width: 100vh;
-    background-color: #501a86;
-    color: #fff;
-    padding-top: 30px;
-	padding-bottom: 20px;
-}
-
 h1 {
     font-family: 'Roboto', sans-serif;
     text-align: center;
