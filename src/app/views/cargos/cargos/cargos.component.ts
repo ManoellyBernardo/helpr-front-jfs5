@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/services/cargo.service';
+import { Toastr } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-cargos',
@@ -12,7 +13,10 @@ export class CargosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
   dataSource: Cargo[] = [];
 
-  constructor(private cargoService: CargoService) { }
+  constructor(
+    private cargoService: CargoService,
+    private toast: Toastr
+    ) { }
 
   ngOnInit(): void {
     this.initializeTable();
@@ -28,7 +32,7 @@ export class CargosComponent implements OnInit {
     let ok = confirm("Tem certeza que deseja excluir?");
     if(ok) {
       this.cargoService.delete(idCargo).subscribe(() => {
-        alert("cargo excluido.");
+        this.toast.showSuccess("Cargo excluido.");
         this.initializeTable();
       });
     }
