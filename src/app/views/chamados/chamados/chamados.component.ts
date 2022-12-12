@@ -14,15 +14,25 @@ export class ChamadosComponent implements OnInit {
   dataSource: Chamado[] = [];
   status = DescricaoStatus;
 
+  spinner: boolean = true
+
   constructor(private chamadoService: ChamadoService) { }
 
   ngOnInit(): void {
     this.initializeTable();
   }
 
-  private initializeTable(): void {
-    this.chamadoService.findAll().subscribe(chamados => {
+   private initializeTable(): void {
+   this.uploadTable();
+   this.chamadoService.findAll().subscribe(chamados => {
       this.dataSource = chamados;
     });
   }
+
+  private uploadTable(): void {
+    setTimeout(()=> this.chamadoService.findAll().subscribe(chamados => {
+      this.dataSource = chamados;
+      this.spinner = false; 
+  }), 500)
+}
 }
