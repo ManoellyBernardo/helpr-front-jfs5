@@ -1,0 +1,22 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Editar Cargo</h2>
+        <form #formEditCargo="ngForm">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome do Cargo</mat-label>
+                <input type="text" name="nome" matInput name="nome" [(ngModel)]="cargo.nome" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <textarea name="descricao" matInput name="descricao" rows="2" [(ngModel)]="cargo.descricao" required></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Salário</mat-label>
+                <input type="number" name="salario" matInput name="salario" [(ngModel)]="cargo.salario" required>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="update(formEditCargo)">Editar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/cargos">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
