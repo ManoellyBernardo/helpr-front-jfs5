@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Chamado } from './../../../models/chamado';
-import { ChamadoService } from './../../../services/chamado.service';
+import { ChamadoService } from '../../../../../chamado.service';
 import { ClienteService } from './../../../services/cliente.service';
 import { Cliente } from 'src/app/models/cliente';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';

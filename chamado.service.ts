@@ -1,9 +1,9 @@
 import { catchError } from 'rxjs/operators';
-import { API_CONFIG } from './../config/api.config';
+import { API_CONFIG } from './src/app/config/api.config';
 import { Observable, EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Chamado } from '../models/chamado';
+import { Chamado } from './src/app/models/chamado';
 
 @Injectable({
   providedIn: 'root'

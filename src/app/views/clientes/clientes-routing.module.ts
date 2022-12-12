@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '',
     component: ClientesComponent,
-    title: "Helper| Clientes"
+    title: "Helper| Clientes",
+    
   },
   {
     path: 'new',

@@ -1,4 +1,4 @@
-import { ChamadoService } from './../../../services/chamado.service';
+import { ChamadoService } from '../../../../../chamado.service';
 import { Chamado } from './../../../models/chamado';
 import { Component, OnInit } from '@angular/core';
 

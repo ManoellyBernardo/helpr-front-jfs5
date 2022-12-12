@@ -1,6 +1,6 @@
 import { NgForm } from '@angular/forms';
 import { ClienteService } from './../../../services/cliente.service';
-import { ChamadoService } from './../../../services/chamado.service';
+import { ChamadoService } from '../../../../../chamado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chamado } from './../../../models/chamado';
 import { Cliente } from './../../../models/cliente';

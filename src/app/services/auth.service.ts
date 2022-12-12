@@ -24,6 +24,7 @@ export class AuthService {
       catchError(error => {
         alert("Erro ao autenticar!");
         console.error(error);
+        
         return EMPTY;
       })
     );
