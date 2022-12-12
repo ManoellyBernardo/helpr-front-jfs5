@@ -32,7 +32,7 @@ const routes: Routes = [
   {
     path: 'cargos',
     loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule),
-    canActivate: [PermissaoAcessoGuard]
+    canActivate: [PermissaoAcessoGuard, AuthGuard]
   },
   {
     path: 'funcionarios',

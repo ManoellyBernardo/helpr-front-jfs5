@@ -22,7 +22,7 @@ export class PermissaoAcessoGuard implements CanActivateChild {
       const jwt = new JwtHelperService();
       const tokenOn:string = localStorage.getItem("token") as string
       const tokenAcess:TokenAcess = jwt.decodeToken(tokenOn)
-      if(tokenAcess.perfil == "ROLE_FUNCIONARIO") {
+      if(tokenAcess.perfil == "ROLE_FUNCIONARIO" || tokenAcess.perfil == "ROLE_ADMIN") {
         return true
       }else {
         this.toast.showError("Acesso não autorizado para clientes.")
