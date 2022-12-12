@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FuturoCandidato } from 'src/app/models/futuroCandidato';
 import { FuturoCandidatoService } from 'src/app/services/futuroCandidato.service';
+import { Toastr } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-clientes',
@@ -12,7 +13,10 @@ export class FuturoCandidatosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'email', 'setor', 'descricao', 'excluir'];
   dataSource: FuturoCandidato[] = [];
 
-  constructor(private futuroCandidatoService: FuturoCandidatoService) { }
+  constructor(
+    private futuroCandidatoService: FuturoCandidatoService,
+    private toast: Toastr
+    ) { }
 
   ngOnInit(): void {
     this.initializeTable();
@@ -28,7 +32,7 @@ export class FuturoCandidatosComponent implements OnInit {
     let ok = confirm("Tem certeza que deseja excluir?");
     if(ok) {
       this.futuroCandidatoService.delete(id).subscribe(() => {
-        alert("Futuro candidato excluido.");
+        this.toast.showSuccess("Futuro candidato excluido.");
         this.initializeTable();
       });
     }
