@@ -29,7 +29,7 @@ export class CargoService {
   public findById(idCargo: string): Observable<Cargo> {
     return this.http.get<Cargo>(`${API_CONFIG.baseUrl}/cargos/${idCargo}`).pipe(
       catchError(error => {
-        alert("Erro ao buscar dados de cargos.");
+        this.toast.showError("Erro ao buscar dados de cargos.");
         console.error(error);
         return EMPTY;
       })
@@ -49,7 +49,7 @@ export class CargoService {
   public delete(idCargo: number): Observable<Cargo> {
     return this.http.delete<Cargo>(`${API_CONFIG.baseUrl}/cargo/${idCargo}`).pipe(
       catchError(error => {
-        alert("Erro ao excluir cargo.");
+        this.toast.showError("Erro ao excluir cargo.");
         console.error(error);
         return EMPTY;
       })
@@ -59,7 +59,7 @@ export class CargoService {
   public update(cargo: Cargo): Observable<Cargo> {
     return this.http.put<Cargo>(`${API_CONFIG.baseUrl}/cargos/${cargo.idCargo}`, cargo).pipe(
       catchError(error => {
-        alert("Erro ao editar cargo.");
+        this.toast.showError("Erro ao editar cargo.");
         console.error(error);
         return EMPTY;
       })

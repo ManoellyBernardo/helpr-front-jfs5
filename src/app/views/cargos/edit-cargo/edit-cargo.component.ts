@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/services/cargo.service';
+import { Toastr } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-edit-cargo',
@@ -20,7 +21,8 @@ export class EditCargoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private cargoService: CargoService,
-    private router: Router
+    private router: Router,
+    private toast: Toastr
     ) { }
 
   ngOnInit(): void {
@@ -39,12 +41,12 @@ export class EditCargoComponent implements OnInit {
   public update(formEditCargo: NgForm): void {
     if(formEditCargo.valid) {
       this.cargoService.update(this.cargo).subscribe(() => {
-        alert("Cargo editado.");
+        this.toast.showSuccess("Cargo editado.");
         this.router.navigate(["/cargos"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toast.showError("Dados inválidos.");
     }
   }
 
