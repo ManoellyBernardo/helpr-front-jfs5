@@ -12,6 +12,7 @@ export class ClientesComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'editar', 'excluir'];
   dataSource: Cliente[] = [];
+  spinner: boolean = true
 
   constructor(
     private clienteService: ClienteService,
@@ -23,6 +24,7 @@ export class ClientesComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.uploadTable();
     this.clienteService.findAll().subscribe(clientes => {
       this.dataSource = clientes;
     });
@@ -36,5 +38,12 @@ export class ClientesComponent implements OnInit {
         this.initializeTable();
       });
     }
+  }
+
+  private uploadTable(): void {
+      setTimeout(()=> this.clienteService.findAll().subscribe(cliente => {
+        this.dataSource = cliente;
+        this.spinner = false; 
+    }), 500)
   }
 }
