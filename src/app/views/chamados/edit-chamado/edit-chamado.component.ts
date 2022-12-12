@@ -7,6 +7,7 @@ import { Cliente } from './../../../models/cliente';
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { Funcionario } from 'src/app/models/funcionario';
+import { Status } from 'src/app/shared/material/enum/status.enum';
 
 @Component({
   selector: 'app-edit-chamado',
@@ -39,7 +40,7 @@ export class EditChamadoComponent implements OnInit {
 
   public chamado: Chamado = {
     titulo: "",
-    status: "",
+    status: Status.DEFAULT,
     descricao: "",
     cliente: this.clienteEmpty,
     funcionario: this.funcionarioEmpty
