@@ -7,7 +7,8 @@ import { NewCargoComponent } from './new-cargo/new-cargo.component';
 const routes: Routes = [
   {
     path: '',
-    component: CargosComponent
+    component: CargosComponent,
+    title: "Helper| Cargos"
   },
   {
     path: 'new',
