@@ -8,10 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import  {  ToastrModule  }  from  'ngx-toastr'
+import { PaginafaqComponent } from './views/paginafaq/paginafaq.component';
+import { ComponentsModule } from './components/components.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PaginafaqComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +23,7 @@ import  {  ToastrModule  }  from  'ngx-toastr'
     BrowserAnimationsModule,
     HttpClientModule,
     JwtModule,
+    ComponentsModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       progressBar: true,

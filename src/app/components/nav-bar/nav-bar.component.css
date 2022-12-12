@@ -3,6 +3,11 @@ mat-drawer-container {
     height: 100%;
 }
 
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
 mat-drawer {
     padding: 20px;
 }
