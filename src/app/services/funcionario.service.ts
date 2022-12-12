@@ -3,19 +3,23 @@ import { Injectable } from '@angular/core';
 import { catchError, EMPTY, Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
 import { Funcionario } from '../models/funcionario';
+import { Toastr } from './toastr.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FuncionarioService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private toast: Toastr
+    ) { }
 
 
 public findAll(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
       catchError(error => {
-        alert("Erro ao buscar dados de funcionario");
+        this.toast.showError("Erro ao buscar dados de funcionários.");
         console.error(error);
         return EMPTY;
       })
@@ -26,7 +30,7 @@ public findAll(): Observable<Funcionario[]> {
   public findById(id: string): Observable<Funcionario> {
     return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao buscar dados de funcionario");
+        this.toast.showError("Erro ao buscar dados de funcionário.");
         console.error(error);
         return EMPTY;
       })
@@ -37,7 +41,7 @@ public findAll(): Observable<Funcionario[]> {
   public create(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionario).pipe(
       catchError(error => {
-        alert("Erro ao criar novo funcionario.");
+        this.toast.showError("Erro ao criar novo funcionário.");
         console.error(error);
         return EMPTY;
       })
@@ -47,7 +51,7 @@ public findAll(): Observable<Funcionario[]> {
   public delete(id: number): Observable<Funcionario> {
     return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao excluir Funcionario.");
+        this.toast.showError("Erro ao excluir funcionário.");
         console.error(error);
         return EMPTY;
       })
@@ -57,7 +61,7 @@ public findAll(): Observable<Funcionario[]> {
   public update(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, funcionario).pipe(
       catchError(error => {
-        alert("Erro ao editar cliente.");
+        this.toast.showError("Erro ao editar funcionário.");
         console.error(error);
         return EMPTY;
       })
