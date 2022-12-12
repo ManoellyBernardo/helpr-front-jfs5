@@ -13,6 +13,8 @@ export class CargosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
   dataSource: Cargo[] = [];
 
+  spinner: boolean = true
+
   constructor(
     private cargoService: CargoService,
     private toast: Toastr
@@ -23,6 +25,7 @@ export class CargosComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.uploadTable();
     this.cargoService.findAll().subscribe(cargos => {
       this.dataSource = cargos;
     });
@@ -37,4 +40,11 @@ export class CargosComponent implements OnInit {
       });
     }
   }
+
+  private uploadTable(): void {
+    setTimeout(()=> this.cargoService.findAll().subscribe(cargo => {
+      this.dataSource = cargo;
+      this.spinner = false; 
+  }), 500)
+}
 }
