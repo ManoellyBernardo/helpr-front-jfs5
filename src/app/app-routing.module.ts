@@ -17,24 +17,26 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
     canActivate: [AuthGuard]
-    
   },
   {
     path: 'clientes',
     loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule),
-    
+    canActivate: [AuthGuard]
   },
   {
     path: 'chamados',
-    loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule)
+    loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'cargos',
-    loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
+    loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'funcionarios',
-    loadChildren: () => import('./views/funcionarios/funcionarios.module').then(m => m.FuncionariosModule)
+    loadChildren: () => import('./views/funcionarios/funcionarios.module').then(m => m.FuncionariosModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'faq',
