@@ -1,3 +1,4 @@
+import { Status } from '../shared/material/enum/status.enum';
 import { Cliente } from './cliente';
 import { Funcionario } from './funcionario';
 export interface Chamado {
@@ -6,7 +7,7 @@ export interface Chamado {
     descricao: string;
     dataAbertura?: string;
     dataFechamento?: string;
-    status?: string;
+    status?: Status;
     funcionario: Funcionario;
     cliente: Cliente;
 }
