@@ -7,6 +7,7 @@ import { Cliente } from './../../../models/cliente';
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { Funcionario } from 'src/app/models/funcionario';
+import { Toastr } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-edit-chamado',
@@ -50,7 +51,8 @@ export class EditChamadoComponent implements OnInit {
     private chamadoService: ChamadoService,
     private clienteService: ClienteService,
     private funcionarioService: FuncionarioService,
-    private router: Router
+    private router: Router,
+    private toast: Toastr
   ) { }
 
   ngOnInit(): void {
@@ -87,12 +89,12 @@ export class EditChamadoComponent implements OnInit {
   public update(form: NgForm): void {
     if (form.valid) {
       this.chamadoService.update(this.chamado).subscribe(chamado => {
-        alert("Chamado editado.");
+        this.toast.showSuccess("Chamado editado.");
         this.router.navigate(["/chamados"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toast.showError("Dados inválidos.");
     }
   }
 }

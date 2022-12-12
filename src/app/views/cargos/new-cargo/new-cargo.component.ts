@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/services/cargo.service';
+import { Toastr } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-new-cargo',
@@ -16,7 +17,8 @@ export class NewCargoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private cargoService: CargoService,
-    private router: Router
+    private router: Router,
+    private toast: Toastr
   ) {
     this.formCargo = formBuilder.group({
       nome: ['', [Validators.required]],
@@ -32,12 +34,12 @@ export class NewCargoComponent implements OnInit {
     if (this.formCargo.valid) {
       const cargo: Cargo = this.formCargo.value;
       this.cargoService.create(cargo).subscribe(() => {
-        alert("Cargo cadastrado.");
+        this.toast.showSuccess("Cargo cadastrado.");
         this.router.navigate(["/cargos"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toast.showError("Dados inválidos.");
     }
   }
 
