@@ -22,17 +22,17 @@ const routes: Routes = [
   {
     path: 'clientes',
     loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule),
-    canActivate: [PermissaoAcessoGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'chamados',
     loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule),
-    canActivate: [PermissaoAcessoGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'cargos',
     loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule),
-    canActivate: [PermissaoAcessoGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'funcionarios',
