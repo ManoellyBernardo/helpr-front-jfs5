@@ -4,5 +4,6 @@ export interface Funcionario {
     email: string;
     cpf: string;
     perfil?: string;
-    senha: string
+    senha: string;
+    idCargo: number;
 }
