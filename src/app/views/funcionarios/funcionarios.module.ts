@@ -6,6 +6,7 @@ import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from "../../components/components.module";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ComponentsModule } from "../../components/components.module";
         MaterialModule,
         ReactiveFormsModule,
         FormsModule,
-        ComponentsModule
+        ComponentsModule,
+        MatProgressSpinnerModule
     ]
 })
 export class FuncionariosModule { }

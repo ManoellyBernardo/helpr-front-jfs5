@@ -13,6 +13,8 @@ export class FuncionariosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'email', 'cpf' , 'editar', 'excluir'];
   dataSource: Funcionario [] = [];
 
+  spinner: boolean = true
+
   constructor(
     private funcionarioService: FuncionarioService,
     private toast: Toastr
@@ -23,6 +25,7 @@ export class FuncionariosComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.uploadTable();
     this.funcionarioService.findAll().subscribe(funcionario => {
       this.dataSource = funcionario;
     });
@@ -38,4 +41,10 @@ export class FuncionariosComponent implements OnInit {
     }
   }
 
+  private uploadTable(): void {
+    setTimeout(()=> this.funcionarioService.findAll().subscribe(funcionario => {
+    this.dataSource = funcionario;
+    this.spinner = false; 
+  }), 500)
+}
 }
