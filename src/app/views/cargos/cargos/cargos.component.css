@@ -9,3 +9,10 @@
 table {
     width: 100%;
 }
+
+.container-spinner {
+    display:flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 40px;
+}
